@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a; /* Fundo preto mais claro */
+    display: flex;
+    flex-direction: column; /* Para empilhar header e container */
+    height: 100vh;
+    margin: 0;
+}
+
+.header {
+    background-color: #28a745; /* Faixa verde */
+    color: white; /* Texto branco */
+    padding: 5px; /* Diminui a altura da faixa */
+    text-align: center;
+    width: 100%; /* Mantém a largura da faixa */
+}
+
+.container {
+    flex: 1; /* Para ocupar o espaço restante */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center; /* Centraliza o texto dentro da caixa de login */
+}
+
+.login h1 {
+    margin-bottom: 20px;
+}
+
+.caixa-texto {
+    margin-bottom: 15px;
+    text-align: center; /* Centraliza os campos de entrada */
+}
+
+.caixa-texto input {
+    width: calc(100% - 20px); /* Ajusta a largura para centralizar com padding */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 auto; /* Garante que o campo fique centralizado */
+    display: block; /* Necessário para margin: auto funcionar */
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745; /* Botão verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #218838; /* Cor mais escura para o hover */
+}
+
+.links {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.links a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
