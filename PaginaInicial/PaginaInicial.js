@@ -1,29 +1,29 @@
-function toggleSidebar() {
-    const sidebar = document.querySelector('.sidebar');
-    const content = document.querySelector('.content');
-    sidebar.classList.toggle('collapsed');
-    content.classList.toggle('expanded');
+function alternarBarraLateral() {
+    const barraLateral = document.querySelector('.barra-lateral');
+    const conteudo = document.querySelector('.conteudo');
+    barraLateral.classList.toggle('recolhida');
+    conteudo.classList.toggle('expandido');
 }
 
-function toggleSubMenu(element) {
-    const subMenu = element.nextElementSibling;
+function alternarSubMenu(elemento) {
+    const subMenu = elemento.nextElementSibling;
     subMenu.style.display = subMenu.style.display === 'block' ? 'none' : 'block';
 }
 
-document.querySelectorAll('.sidebar ul li a').forEach(link => {
+document.querySelectorAll('.barra-lateral ul li a').forEach(link => {
     link.addEventListener('click', function() {
-        document.querySelectorAll('.sidebar ul li a').forEach(item => item.classList.remove('active'));
-        this.classList.add('active');
+        document.querySelectorAll('.barra-lateral ul li a').forEach(item => item.classList.remove('ativo'));
+        this.classList.add('ativo');
     });
 });
 
-document.getElementById('searchInput').addEventListener('input', function() {
-    const filter = this.value.toLowerCase();
-    const menuItems = document.querySelectorAll('#menu li a');
+document.getElementById('campoBusca').addEventListener('input', function() {
+    const filtro = this.value.toLowerCase();
+    const itensMenu = document.querySelectorAll('#menu li a');
 
-    menuItems.forEach(item => {
-        const text = item.textContent.toLowerCase();
-        if (text.includes(filter)) {
+    itensMenu.forEach(item => {
+        const texto = item.textContent.toLowerCase();
+        if (texto.includes(filtro)) {
             item.parentElement.style.display = '';
         } else {
             item.parentElement.style.display = 'none';
@@ -31,45 +31,45 @@ document.getElementById('searchInput').addEventListener('input', function() {
     });
 });
 
-function addEquipment() {
-    const name = document.getElementById('equipmentName').value;
-    const code = document.getElementById('equipmentCode').value;
-    const purchaseDate = document.getElementById('purchaseDate').value;
-    const installationDate = document.getElementById('installationDate').value;
-    const patrimony = document.getElementById('patrimony').value;
+function adicionarEquipamento() {
+    const nome = document.getElementById('nomeEquipamento').value;
+    const codigo = document.getElementById('codigoEquipamento').value;
+    const dataCompra = document.getElementById('dataCompra').value;
+    const dataInstalacao = document.getElementById('dataInstalacao').value;
+    const patrimonio = document.getElementById('patrimonio').value;
 
-    const tableBody = document.getElementById('equipmentTableBody');
-    const row = document.createElement('tr');
+    const corpoTabela = document.getElementById('corpoTabelaEquipamentos');
+    const linha = document.createElement('tr');
 
-    row.innerHTML = `
-        <td>${name}</td>
-        <td>${code}</td>
-        <td>${purchaseDate}</td>
-        <td>${installationDate}</td>
-        <td>${patrimony}</td>
+    linha.innerHTML = `
+        <td>${nome}</td>
+        <td>${codigo}</td>
+        <td>${dataCompra}</td>
+        <td>${dataInstalacao}</td>
+        <td>${patrimonio}</td>
     `;
 
-    tableBody.appendChild(row);
+    corpoTabela.appendChild(linha);
 
     // Limpar os campos do formulário
-    document.getElementById('equipmentName').value = '';
-    document.getElementById('equipmentCode').value = '';
-    document.getElementById('purchaseDate').value = '';
-    document.getElementById('installationDate').value = '';
-    document.getElementById('patrimony').value = '';
+    document.getElementById('nomeEquipamento').value = '';
+    document.getElementById('codigoEquipamento').value = '';
+    document.getElementById('dataCompra').value = '';
+    document.getElementById('dataInstalacao').value = '';
+    document.getElementById('patrimonio').value = '';
 }
 
-document.getElementById('equipmentSearch').addEventListener('input', function() {
-    const filter = this.value.toLowerCase();
-    const rows = document.querySelectorAll('#equipmentTableBody tr');
+document.getElementById('buscaEquipamento').addEventListener('input', function() {
+    const filtro = this.value.toLowerCase();
+    const linhas = document.querySelectorAll('#corpoTabelaEquipamentos tr');
 
-    rows.forEach(row => {
-        const cells = row.querySelectorAll('td');
-        const text = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(' ');
-        if (text.includes(filter)) {
-            row.style.display = '';
+    linhas.forEach(linha => {
+        const celulas = linha.querySelectorAll('td');
+        const texto = Array.from(celulas).map(celula => celula.textContent.toLowerCase()).join(' ');
+        if (texto.includes(filtro)) {
+            linha.style.display = '';
         } else {
-            row.style.display = 'none';
+            linha.style.display = 'none';
         }
     });
 });
