@@ -111,6 +111,7 @@ header {
     padding: 10px;
     border-radius: 5px;
     transition: transform 0.2s;
+    position: relative; /* Para permitir o posicionamento do botão */
 }
 
 .card:hover {
@@ -118,3 +119,17 @@ header {
     background: #d1d3d5;
 }
 
+.remover-btn {
+    background: none; /* Remove o fundo padrão do botão */
+    border: none; /* Remove a borda do botão */
+    color: #29222261; /* Cor do x */
+    font-weight: bold; /* Negrito para o x */
+    font-size: 1.2em; /* Tamanho do x */
+    cursor: pointer; /* Altera o cursor para indicar que é clicável */
+    margin-left: 10px; /* Espaço entre o cartão e o botão */
+    position: absolute; /* Posiciona o botão de remoção */
+    top: 10px; /* Alinha na parte superior do cartão */
+    right: 10px; /* Alinha à direita do cartão */
+    padding: 0; /* Remove o padding do botão */
+    line-height: 1; /* Para centralizar melhor o x */
+}
