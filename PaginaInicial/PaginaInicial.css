@@ -74,6 +74,8 @@ body {
 }
 .search-bar {
     margin-bottom: 20px;
+    margin-right: 20px;
+
 }
 .search-bar input {
     width: 100%;
