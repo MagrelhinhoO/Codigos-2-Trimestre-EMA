@@ -1,48 +1,70 @@
+/* Estilos globais */
+body {
+  background-color: #f4f4f4;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #121212;
+  color: #fff;
+}
+
+/* Estilos para o botão de alternar tema */
+#themeToggleBtn {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estilos da Navbar */
 .navbar-custom {
-    background-color: #007bff;
+  background-color: #007bff;
 }
 
 .navbar-custom .navbar-brand,
 .navbar-custom .nav-link {
-    color: #fff;
+  color: #fff;
 }
 
-.dropdown-scroll {
-  max-height: 50vh; 
-  overflow-y: auto;
+.navbar-custom .btn-outline-light {
+  color: #fff;
+  border-color: #fff;
 }
 
-.container {
-  /* display: flex; */
-  /* width: 1000px; */
-  height: 90vh;
-} 
+body.dark .navbar-custom {
+  background-color: #333;
+}
 
+body.dark .navbar-custom .navbar-brand,
+body.dark .navbar-custom .nav-link {
+  color: #fff;
+}
+
+body.dark .navbar-custom .btn-outline-light {
+  color: #ddd;
+  border-color: #ddd;
+}
+
+/* Estilos para as colunas e cartões */
 #board {
-  display: flex;
-  height: 90vh;
-  /* align-items: left; */
-  /* max-width: 200%; */
-  overflow-x: scroll;
-}
-
-.column-item {
-  float: left;
-  margin: 10px;
+  display: flex;  /* Usamos flexbox para que as colunas fiquem lado a lado */
+  flex-wrap: nowrap;  /* Impede que as colunas quebrem para uma nova linha */
+  overflow-x: auto; /* Permite rolagem horizontal caso as colunas ultrapassem a largura da tela */
+  gap: 15px;  /* Espaço entre as colunas */
   padding: 10px;
-  border-radius: 10px;
-  flex: 1;  
-  width: 500px;
-  background-color: #007bff5c;  
 }
 
 .column-item {
+  background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: #f9f9f9;
-  margin: 10px;
-  padding: 0;
-  width: 300px;
+  width: 300px;  /* Define um tamanho fixo para cada coluna */
+  flex-shrink: 0;  /* Impede que as colunas encolham */
+}
+
+body.dark .column-item {
+  background-color: #333;
+  border-color: #555;
 }
 
 .column-header {
@@ -54,16 +76,40 @@
   border-bottom: 1px solid #ddd;
 }
 
-.column-body {
-  padding: 10px;
-  min-height: 100px;
-  background-color: #fff;
+body.dark .column-header {
+  background-color: #555;
 }
 
-.task-item {
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
+.column-body {
+  background-color: #fff;
   padding: 10px;
-  background-color: #e9ecef;
-  border-radius: 5px;
+  min-height: 100px;
+}
+
+body.dark .column-body {
+  background-color: #444;
+  color: #fff;
+}
+
+/* Botão de adicionar coluna */
+#addColumnBtn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+#addColumnBtn:hover {
+  background-color: #0056b3;
+}
+
+body.dark #addColumnBtn {
+  background-color: #555;
+  color: white;
+}
+
+body.dark #addColumnBtn:hover {
+  background-color: #444;
 }
